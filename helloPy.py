@@ -8,5 +8,5 @@ a, b = 0, 1
 while b < 100:
     print(b, end=",")
     a, b = b, a + b
-str = "babyTellMeWhy"
-print("\n" + str[:], end = " ")
+string = "babyTellMeWhy"
+print("\n" + string[:], end=" ")

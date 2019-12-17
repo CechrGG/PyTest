@@ -9,7 +9,7 @@ print(a | b)
 print(a ^ b)
 '''
 
-dic = {'w':116, 'gg':1201, 'lady':401}
+dic = {'w': 116, 'gg': 1201, 'lady': 401}
 del dic['lady']
 dic['qq'] = 505
 print(type(dic), sorted(dic.keys()), dic.values(), dic['gg'])
