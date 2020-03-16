@@ -13,3 +13,4 @@ print("\n" + string[:], end=" ")
 
 print(0.33 + 0.1)
 print(0.33 + 0.11)
+print(__name__)
