@@ -5,7 +5,7 @@
 # @File  : __init__.py.py
 
 
-if __name__ == "_main_":
+if __name__ == "__main__":
     print("main")
 else:
     print("not main")

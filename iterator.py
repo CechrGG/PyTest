@@ -2,7 +2,7 @@
 # -*- coding:UTF-8 -*-
 
 import os
-from collections.abc import Iterable, Iterator
+from collections.abc import Iterator
 
 '''
 numbers = [1,2,3,4,5]
@@ -11,9 +11,9 @@ for number in it:
     print(number, end=" ")
 '''
 
-L = list(range(100))
-print(L[0:10:2])
-print(L[-10:-1:2])
+my_list = list(range(100))
+print(my_list[0:10:2])
+print(my_list[-10:-1:2])
 
 
 def trim(s):
@@ -30,46 +30,56 @@ def trim(s):
 print(trim("  a  bc   "))
 
 
-def findMinAndMax(L):
-    if len(L) == 0:
-        return (None, None)
-    elif len(L) == 1:
-        return (L[0], L[0])
+def find_min_max(arg_list):
+    if len(arg_list) == 0:
+        return None, None
+    elif len(arg_list) == 1:
+        return arg_list[0], arg_list[0]
     else:
-        max, min = 0, 0
-        for i in L:
+        for i in arg_list:
             if not isinstance(i, (int, float)):
-                raise TypeError("L you fei shuzi ")
-        if L[0] > L[1]:
-            max = L[0]
-            min = L[1]
+                raise TypeError("列表中存在非数字类型")
+        if arg_list[0] > arg_list[1]:
+            maximum = arg_list[0]
+            minimum = arg_list[1]
         else:
-            max = L[1]
-            min = L[0]
-        for i in L:
-            if i > max:
-                max = i
-            elif i < min:
-                min = i
-        return (max, min)
+            maximum = arg_list[1]
+            minimum = arg_list[0]
+        for i in arg_list:
+            if i > maximum:
+                maximum = i
+            elif i < minimum:
+                minimum = i
+        return maximum, minimum
 
 
-print(findMinAndMax([6.1, 1, -3, 5, 5.8]))
-
-print([dir for dir in os.listdir(".")])
-
-
-def triangles():
-    L = [1]
-    while (True):
-        yield L
-        L = [1] + [x + y for x, y in zip(L[:-1], L[1:])] + [1]
+print(find_min_max([6.1, 1, -3, 5, 5.8]))
+print([direction for direction in os.listdir(".")])
+print('\n'.join(['  '.join(['%d * %d =  %d' % (a, b, a * b) for a in range(1, b + 1)]) for b in range(1, 10)]))
 
 
-for n in triangles():
-    if len(n) < 11:
-        print(n)
-    else:
-        break
+def triangles(length):
+    arg_list = [1]
+    rows = 0
+    while rows < length:
+        yield arg_list
+        arg_list = [1] + [m + n for m, n in zip(arg_list[:-1], arg_list[1:])] + [1]
+        rows += 1
 
-print(isinstance([], Iterator))
+
+for row in triangles(10):
+    print(row)
+
+# draw_triangles(5)
+print(isinstance([1, 2, 3], Iterator))
+
+
+def fabo(num):
+    a = b = 1
+    for i in range(num):
+        yield a
+        a, b = b, a + b
+
+
+for x in fabo(100):
+    print(x)

@@ -9,8 +9,14 @@
 
 from func.function import *
 
-if __name__ == "_main_":
-    print("main")
-else:
-    print("not main")
-print(selfdef_sum(1, 1))
+print(__name__)
+print(selfdef_sum(1, '1'))
+print(division(3, 2))
+print(division(3, 0))
+print(2 / 1)
+print(9 // 5)
+print(division(1, 2))
+print(division(-3, 2))
+show_user(1, 'guoguo', sex='male', age=('1', '2', '3'))
+lsum = lambda num1, num2: num1 + num2
+print(lsum(1, 1))
