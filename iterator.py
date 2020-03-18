@@ -83,3 +83,5 @@ def fabo(num):
 
 for x in fabo(100):
     print(x)
+print(' '.join(['{}'.format(num) for num in reversed(my_list)]))
+print(dict(zip(['uid', 'name', 'age'], [1, 'guoguo', 30])))
